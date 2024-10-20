@@ -30,3 +30,4 @@ source.  See the [docs](https://github.com/mkleehammer/pyodbc/wiki/Install) for 
 [Documentation](https://github.com/mkleehammer/pyodbc/wiki)
 
 [Release Notes](https://github.com/mkleehammer/pyodbc/releases)
+
