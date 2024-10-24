@@ -63,11 +63,9 @@ jobs:
         git clone https://github.com/lurcher/unixODBC
         cd unixODBC
         autoreconf -iv
-        CFLAGS="-ggdb -fsanitize=address" ./configure --prefix=/usr
+        CFLAGS="-ggdb -fsanitize=undefined" ./configure --prefix=/usr
         make
         sudo make install
-        which odbcinst
-        strings `which odbcinst` | grep -i asan
 
     - name: Check initial setup
       run: |
