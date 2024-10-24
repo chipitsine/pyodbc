@@ -62,11 +62,14 @@ jobs:
       run: |
         sudo apt-get update -y
         sudo apt install -y libtsan0
+
+        sudo apt install libgcc-10-dev
+        sudo ln -s /usr/lib/gcc/x86_64-linux-gnu/10/libtsan_preinit.o /usr/lib/libtsan_preinit.o
+        
         git clone https://github.com/lurcher/unixODBC
         cd unixODBC
         autoreconf -iv
         CFLAGS="-ggdb -fsanitize=thread" LDFLAGS="-fsanitize=thread" ./configure --prefix=/usr || cat config.log
-        ls /etcc
         make
         #make AM_MAKEFLAGS=CFLAGS="'-ggdb -fsanitize=thread'"
         sudo make install
