@@ -66,7 +66,7 @@ jobs:
         cd unixODBC
         autoreconf -iv
         ./configure --prefix=/usr
-        make AM_MAKEFLAGS=CFLAGS="-ggdb -fsanitize=thread"
+        make AM_MAKEFLAGS=CFLAGS="'-ggdb -fsanitize=thread'"
         sudo make install
 
     - name: Check initial setup
