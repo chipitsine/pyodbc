@@ -60,6 +60,8 @@ jobs:
 
     - name: install unixODBC
       run: |
+        sudo apt-get update -y
+        sudo apt install -y libtsan2
         git clone https://github.com/lurcher/unixODBC
         cd unixODBC
         autoreconf -iv
