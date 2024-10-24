@@ -57,6 +57,18 @@ jobs:
       run: |
         sudo systemctl start mysql.service
 
+
+    - name: install unixODBC
+      run: |
+        git clone https://github.com/lurcher/unixODBC
+        cd unixODBC
+        autoreconf -iv
+        CFLAGS="-ggdb -fsanitize=address" ./configure --prefix=/usr
+        make
+        sudo make install
+        which odbcinst
+        strings `which odbcinst` | grep -i asan
+
     - name: Check initial setup
       run: |
         echo '*** echo $PATH'
