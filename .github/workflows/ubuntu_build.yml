@@ -69,9 +69,8 @@ jobs:
         git clone https://github.com/lurcher/unixODBC
         cd unixODBC
         autoreconf -iv
-        CFLAGS="-ggdb -fsanitize=thread" LDFLAGS="-fsanitize=thread" ./configure --prefix=/usr || cat config.log
+        CFLAGS="-ggdb -fsanitize=address" LDFLAGS="-fsanitize=address" ./configure --prefix=/usr
         make
-        #make AM_MAKEFLAGS=CFLAGS="'-ggdb -fsanitize=thread'"
         sudo make install
 
     - name: Check initial setup
