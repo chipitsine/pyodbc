@@ -217,6 +217,10 @@ jobs:
         cd "$GITHUB_WORKSPACE"
         python -m pytest "./tests/mysql_test.py"
 
+    - name: install sql2017
+      run: |
+        sudo apt-get install -y unixodbc-dev unixodbc  msodbcsql17  mssql-tools
+
     - name: Run SQL Server 2017 tests
       env:
         PYODBC_SQLSERVER: "DRIVER={ODBC Driver 17 for SQL Server};SERVER=localhost,1401;UID=sa;PWD=StrongPassword2017;DATABASE=test"
