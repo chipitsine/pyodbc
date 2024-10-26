@@ -62,6 +62,7 @@ jobs:
       run: |
         sudo apt-get update -y
         sudo apt install -y libtsan0
+        sudo dpkg -P unixodbc-dev unixodbc 
 
         sudo apt install libgcc-10-dev
         sudo ln -s /usr/lib/gcc/x86_64-linux-gnu/10/libtsan_preinit.o /usr/lib/libtsan_preinit.o
