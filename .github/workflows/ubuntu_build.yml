@@ -70,7 +70,7 @@ jobs:
         git clone https://github.com/lurcher/unixODBC
         cd unixODBC
         autoreconf -iv
-        CFLAGS="-ggdb -fsanitize=address" LDFLAGS="-fsanitize=address" ./configure --prefix=/usr
+        CFLAGS="-ggdb -fsanitize=thread" LDFLAGS="-fsanitize=thread" ./configure --prefix=/usr
         make
         sudo make install
 
